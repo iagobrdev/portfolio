@@ -1,0 +1,21 @@
+name: Deploy to EasyPanel
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to EasyPanel
+        run: |
+          curl -X POST ${{ secrets.EASY_PANEL_URL }} \
+          -H "Authorization: Bearer ${{ secrets.EASY_PANEL_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          -d '{"trigger":"deploy"}'
