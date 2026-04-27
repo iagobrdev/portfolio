@@ -1,20 +1,23 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Portfolio
 
-# Run and deploy your AI Studio app
+Projeto de portfolio em React + Vite + Tailwind.
 
-This contains everything you need to run your app locally.
+## Requisitos
 
-View your app in AI Studio: https://ai.studio/apps/b9b40be7-609b-4af6-b6f8-a3f6593cd3fa
+- Node.js 20+
 
-## Run Locally
+## Como rodar localmente
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
+1. Instale as dependencias:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
+2. Inicie o ambiente de desenvolvimento:
    `npm run dev`
+3. Acesse:
+   `http://localhost:3000`
+
+## Scripts
+
+- `npm run dev` inicia o servidor local
+- `npm run build` gera o build de producao
+- `npm run preview` faz preview do build
+- `npm run lint` roda verificacao de tipos
