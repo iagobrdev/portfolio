@@ -2,7 +2,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="w-full border-t border-white/5 py-12 bg-surface mt-20">
+    <footer id="contact" className="w-full border-t border-white/5 py-12 bg-surface mt-8">
       <div className="max-w-[1200px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="text-xl font-bold tracking-tighter [word-spacing:0.35rem] text-white">
           IAGO BERTOLETTI RIBEIRO

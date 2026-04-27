@@ -69,7 +69,7 @@ export function Trajectory() {
         "Mentored architects and tech leads, raising the technical bar and improving architectural decision-making across teams.",
         "Partnered with executive leadership, aligning technology decisions with direct business impact."
       ],
-      tags: ["SOFTWARE ARCHITECTURE", "SPRING BOOT", "DDD", "SOLID", "CLEAN CODE", "TECH LEADERSHIP", "SCALABILITY", "SYSTEM RELIABILITY"]
+      tags: ["JAVA", "SPRING BOOT", ".NET", "REACT", "DDD", "CQRS", "MICROSERVICES", "EVENT-DRIVEN", "SOLID", "AZURE"]
     },
     {
       year: "MAR 2024 — MAR 2025",
@@ -84,7 +84,7 @@ export function Trajectory() {
         "Implemented unit and integration testing, achieving over 90% code coverage with SonarQube, significantly improving code quality and reliability.",
         "Standardized code practices by applying SOLID principles and Clean Code, improving maintainability and reducing technical debt."
       ],
-      tags: ["SOFTWARE ARCHITECTURE", "SPRING BOOT", "JAVA 8-21", "CQRS", "HEXAGONAL ARCHITECTURE", "APACHE CAMEL", "RABBITMQ", "KAFKA", "REST APIs", "ORACLE", "MONGODB", "SONARQUBE"]
+      tags: ["JAVA", "SPRING BOOT", "REACT", "ORACLE", "MONGODB", "KAFKA", "RABBITMQ", "CQRS", "AWS"]
     },
     {
       year: "JUL 2018 — MAR 2024",
@@ -99,7 +99,7 @@ export function Trajectory() {
         "Implemented and maintained unit and integration testing, improving software quality and reducing production issues by approximately 30%.",
         "Managed and maintained cloud environments on Microsoft Azure, ensuring high availability, system stability, and performance."
       ],
-      tags: ["SOFTWARE ARCHITECTURE", "SPRING BOOT", "MICROSERVICES", "RABBITMQ", "AZURE DEVOPS", "CI/CD", "REST APIs", "HIGH AVAILABILITY"]
+      tags: ["JAVA", "SPRING BOOT", "MICROSERVICES", "RABBITMQ", "AZURE", "AZURE DEVOPS", "REST"]
     },
     {
       year: "JAN 2015 — DEC 2017",
@@ -114,7 +114,7 @@ export function Trajectory() {
         "Mentored junior and mid-level engineers, accelerating team growth and reducing onboarding time by approximately 30%.",
         "Partnered closely with business stakeholders, translating complex requirements into efficient technical solutions, directly impacting delivery speed and product quality."
       ],
-      tags: ["SOFTWARE ARCHITECTURE", "SPRING BOOT", "TEAM LEADERSHIP", "MICROSERVICES", "REST APIs", "CI/CD", "CODE REVIEW", "DDD", "SOLID", "CLEAN CODE"]
+      tags: ["JAVA", "SPRING BOOT", "MICROSERVICES", "REST", "CI/CD", "DDD", "SOLID"]
     },
     {
       year: "JAN 2010 — DEC 2014",
@@ -128,12 +128,12 @@ export function Trajectory() {
         "Developed 20+ REST APIs and Web Services in Java, enabling seamless system integration and reducing inter-service communication time by approximately 30%.",
         "Built mobile applications integrated with Java backend services, reaching 1,000+ active users and optimizing field operations for orders and service management."
       ],
-      tags: ["JAVA", "ERP", "FISCAL SYSTEMS", "REST APIs", "WEB SERVICES", "SYSTEM INTEGRATIONS", "HIGH AVAILABILITY", "MOBILE INTEGRATION"]
+      tags: ["JAVA", "ERP", "FISCAL", "REST", "WEB SERVICES", "MOBILE"]
     }
   ];
 
   return (
-    <section id="projects" className="mb-20">
+    <section id="projects" className="mb-10">
       <div className="mb-12">
         <span className="text-label text-brand-cyan mb-2 block tracking-[0.2em]">Trajectory</span>
         <h2 className="text-h2 text-white">Professional Experience</h2>
