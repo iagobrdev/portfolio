@@ -16,6 +16,5 @@ jobs:
       - name: Deploy to EasyPanel
         run: |
           curl -X POST ${{ secrets.EASY_PANEL_URL }} \
-          -H "Authorization: Bearer ${{ secrets.EASY_PANEL_TOKEN }}" \
           -H "Content-Type: application/json" \
           -d '{"trigger":"deploy"}'
