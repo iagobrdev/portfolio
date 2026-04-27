@@ -1,4 +1,4 @@
-name: Deploy to EasyPanel
+name: Deploy to Easypanel
 
 on:
   push:
@@ -10,11 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Deploy to EasyPanel
+      - name: Trigger Easypanel Deployment
         run: |
-          curl -X POST ${{ secrets.EASY_PANEL_URL }} \
-          -H "Content-Type: application/json" \
-          -d '{"trigger":"deploy"}'
+          curl -X POST "${{ secrets.EASY_PANEL_URL }}"
