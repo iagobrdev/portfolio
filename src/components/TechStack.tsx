@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Layers, Database, Cloud } from "lucide-react";
+import { Layers, Server, Cloud } from "lucide-react";
 
 export function TechStack() {
   return (
@@ -10,22 +10,45 @@ export function TechStack() {
           <h2 className="text-h2 text-white">Technical Arsenal</h2>
         </div>
         <div className="font-mono text-xs text-zinc-500 hidden md:block opacity-50">
-          &lt;stack_integrity_v4.0.1 /&gt;
+          &lt;/&gt;
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        {/* Frontend */}
         <motion.div 
           whileHover={{ y: -5 }}
           className="glass-card p-6 rounded-2xl md:col-span-2"
         >
           <div className="flex items-center gap-3 mb-6">
             <Layers className="w-5 h-5 text-brand-cyan" />
-            <h3 className="text-xl font-semibold text-white">Frontend Architecture</h3>
+            <h3 className="text-xl font-semibold text-white">Backend Focus</h3>
+          </div>
+          <ul className="space-y-3 text-sm text-zinc-400">
+            <li className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-brand-cyan rounded-full"></span>
+              Java / Spring Boot
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-brand-cyan rounded-full"></span>
+              Kafka / RabbitMQ / Apache Camel
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-brand-cyan rounded-full"></span>
+              PostgreSQL / MongoDB / Redis
+            </li>
+          </ul>
+        </motion.div>
+
+        <motion.div 
+          whileHover={{ y: -5 }}
+          className="glass-card p-6 rounded-2xl"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <Layers className="w-5 h-5 text-brand-cyan" />
+            <h3 className="text-xl font-semibold text-white">Frontend</h3>
           </div>
           <div className="flex flex-wrap gap-2">
-            {["React / Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Three.js"].map((tech) => (
+            {["React.js", "TypeScript", "Tailwind CSS", "HTML/CSS"].map((tech) => (
               <span key={tech} className="px-3 py-1 bg-surface border border-white/10 rounded-full text-xs font-medium text-zinc-400">
                 {tech}
               </span>
@@ -33,32 +56,6 @@ export function TechStack() {
           </div>
         </motion.div>
 
-        {/* Backend */}
-        <motion.div 
-          whileHover={{ y: -5 }}
-          className="glass-card p-6 rounded-2xl"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <Database className="w-5 h-5 text-brand-cyan" />
-            <h3 className="text-xl font-semibold text-white">Systems</h3>
-          </div>
-          <ul className="space-y-3 text-sm text-zinc-400">
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-brand-cyan rounded-full"></span>
-              Node / NestJS
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-brand-cyan rounded-full"></span>
-              PostgreSQL / Redis
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-brand-cyan rounded-full"></span>
-              GraphQL API
-            </li>
-          </ul>
-        </motion.div>
-
-        {/* Cloud */}
         <motion.div 
           whileHover={{ y: -5 }}
           className="glass-card p-6 rounded-2xl"
@@ -70,11 +67,11 @@ export function TechStack() {
           <ul className="space-y-3 text-sm text-zinc-400">
             <li className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-brand-cyan rounded-full"></span>
-              AWS / GCP
+              Azure / AWS
             </li>
             <li className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-brand-cyan rounded-full"></span>
-              Docker / K8s
+              Docker / Kubernetes
             </li>
             <li className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-brand-cyan rounded-full"></span>
@@ -83,15 +80,14 @@ export function TechStack() {
           </ul>
         </motion.div>
 
-        {/* Philosophy */}
         <div className="glass-card p-6 rounded-2xl md:col-span-4 grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
           <div className="md:col-span-1">
-            <h4 className="text-label text-white mb-2">Design Philosophy</h4>
-            <p className="text-sm text-zinc-500 leading-relaxed">Atomic systems and accessibility-first engineering.</p>
+            <h4 className="text-label text-white mb-2">Architectural Patterns</h4>
+            <p className="text-sm text-zinc-500 leading-relaxed">Scalable backend design focused on reliability and maintainability.</p>
           </div>
           <div className="md:col-span-3 flex flex-wrap gap-x-8 gap-y-4 items-center border-l border-white/5 md:pl-8">
-            <span className="text-zinc-500 text-label">TOOLS:</span>
-            {["FIGMA", "NEOVIM", "LINEAR", "GITLAB", "ADOBE CC"].map(tool => (
+            <span className="text-zinc-500 text-label">PATTERNS:</span>
+            {["EVENT-DRIVEN", "MICROSERVICES", "CLEAN ARCHITECTURE", "DDD", "CQRS"].map(tool => (
               <span key={tool} className="text-white font-mono text-sm tracking-wider">{tool}</span>
             ))}
           </div>
