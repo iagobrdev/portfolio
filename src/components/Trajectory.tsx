@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useState, type Key } from "react";
 
 interface ExperienceItemProps {
+  key?: Key;
   year: string;
   role: string;
   company: string;

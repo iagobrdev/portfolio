@@ -19,7 +19,7 @@ export function Hero() {
         </p>
         <div className="mt-12 flex gap-12">
           <div className="flex flex-col">
-            <span className="text-4xl font-bold text-white">15+</span>
+            <span className="text-4xl font-bold text-white">16+</span>
             <span className="text-label text-zinc-500 mt-1">Years Experience</span>
           </div>
           <div className="flex flex-col">
