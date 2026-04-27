@@ -1,23 +1,23 @@
 # Portfolio
 
-Projeto de portfolio em React + Vite + Tailwind.
+A portfolio project built with React + Vite + Tailwind.
 
-## Requisitos
+## Requirements
 
 - Node.js 20+
 
-## Como rodar localmente
+## Run locally
 
-1. Instale as dependencias:
+1. Install dependencies:
    `npm install`
-2. Inicie o ambiente de desenvolvimento:
+2. Start the development server:
    `npm run dev`
-3. Acesse:
+3. Open:
    `http://localhost:3000`
 
 ## Scripts
 
-- `npm run dev` inicia o servidor local
-- `npm run build` gera o build de producao
-- `npm run preview` faz preview do build
-- `npm run lint` roda verificacao de tipos
+- `npm run dev` starts the local dev server
+- `npm run build` creates the production build
+- `npm run preview` previews the production build
+- `npm run lint` runs type checking
