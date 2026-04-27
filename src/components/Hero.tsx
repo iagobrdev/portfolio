@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import profileImage from "../assets/profile-image.jpeg";
 
 export function Hero() {
   return (
@@ -11,19 +12,19 @@ export function Hero() {
       >
         <span className="text-label text-brand-cyan mb-4 block tracking-[0.2em]">Executive Overview</span>
         <h1 className="text-display text-white mb-6 leading-tight">
-          Engineering Digital <span className="text-brand-cyan">Excellence.</span>
+          Software <span className="text-brand-cyan">Engineer</span>
         </h1>
         <p className="text-lg text-zinc-400 max-w-xl leading-relaxed">
-          I am a senior full-stack architect specializing in high-performance distributed systems and premium user interfaces. With over a decade of experience, I bridge the gap between complex backend logic and pixel-perfect aesthetics.
+          Specializing in Java and distributed systems architecture. I design scalable backend solutions, lead architectural decisions, and drive modernization initiatives across complex environments, with strong focus on microservices, event-driven architectures, and cloud-based systems, guided by industry best engineering practices.
         </p>
         <div className="mt-12 flex gap-12">
           <div className="flex flex-col">
-            <span className="text-4xl font-bold text-white">12+</span>
+            <span className="text-4xl font-bold text-white">15+</span>
             <span className="text-label text-zinc-500 mt-1">Years Experience</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-4xl font-bold text-white">140+</span>
-            <span className="text-label text-zinc-500 mt-1">Projects Shipped</span>
+            <span className="text-4xl font-bold text-white">40+</span>
+            <span className="text-label text-zinc-500 mt-1">Projects Developed</span>
           </div>
         </div>
       </motion.div>
@@ -39,7 +40,7 @@ export function Hero() {
           <img 
             alt="Professional Headshot" 
             className="rounded-xl grayscale hover:grayscale-0 transition-all duration-700 object-cover aspect-square w-full"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUQAaI-dzMaK3_TVLT_rmjtx5t42TZhUGXJ1y98jG8dH7_fAYcjIpYGwhcv0YB7iNWII1WrrYPNct1HtDyFsJe_NzTvQdjY9JASSl23CA7inoJNNOuOxXk1eETTGV3I9t47nASO1E3ifXGbZub6lRhFXHkOYQkrDWJoQZiRF3DkaAtCvDPTwd3iERV0-Jfa9AmweegY_ts7urcLAc1rQlcr1NVZnOG-3tjk37tHhUSxxtQjJ1R3vnhrG5E7UOwikD4ydHG-IevVpLY"
+            src={profileImage}
           />
         </div>
       </motion.div>
