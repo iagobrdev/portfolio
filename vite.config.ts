@@ -34,6 +34,14 @@ export default defineConfig(({mode}) => {
     },
     server: {
       hmr: process.env.DISABLE_HMR !== 'true',
+      proxy: {
+        '/fx-platform': {
+          target: 'https://fx-event-platform-api-gateway.hcvsrx.easypanel.host',
+          changeOrigin: true,
+          secure: true,
+          rewrite: (p) => p.replace(/^\/fx-platform/, '') || '/',
+        },
+      },
     },
   };
 });
