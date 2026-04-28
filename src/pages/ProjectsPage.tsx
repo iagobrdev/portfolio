@@ -1,128 +1,126 @@
-import { useEffect, useState } from "react";
-import { Code, ExternalLink, Star } from "lucide-react";
+import { Fragment } from "react";
+import { Code, Github } from "lucide-react";
+import { FxLiveRatesPanel } from "../components/FxLiveRates";
+import type { Project, ProjectDetail } from "../data/projects";
+import { PROJECTS } from "../data/projects";
 
-type GithubRepo = {
-  id: number;
-  name: string;
-  html_url: string;
-  description: string | null;
-  stargazers_count: number;
-  language: string | null;
-  fork: boolean;
-  updated_at: string;
-};
+function DetailSections({ detail }: { detail: ProjectDetail }) {
+  return (
+    <div className="mt-10 space-y-10 border-t border-white/10 pt-10">
+      <section>
+        <h3 className="text-label text-brand-cyan mb-3 tracking-[0.2em]">
+          Overview
+        </h3>
+        <p className="text-zinc-400 text-sm leading-relaxed">{detail.overview}</p>
+      </section>
 
-const GITHUB_USER = "iagobrdev";
+      <section>
+        <h3 className="text-label text-brand-cyan mb-3 tracking-[0.2em]">
+          Architecture
+        </h3>
+        <p className="text-zinc-400 text-sm leading-relaxed">{detail.architecture}</p>
+      </section>
+
+      <section>
+        <h3 className="text-label text-brand-cyan mb-3 tracking-[0.2em]">
+          How it works
+        </h3>
+        <ol className="list-decimal list-inside space-y-3 text-zinc-400 text-sm leading-relaxed">
+          {detail.howItWorks.map((step) => (
+            <li key={step} className="marker:text-brand-cyan">
+              {step}
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section>
+        <h3 className="text-label text-brand-cyan mb-6 tracking-[0.2em]">
+          Services
+        </h3>
+        <div className="space-y-6">
+          {detail.services.map((svc) => (
+            <div
+              key={svc.title}
+              className="rounded-xl border border-white/5 bg-white/[0.02] p-5 md:p-6"
+            >
+              <h4 className="text-lg font-semibold text-white mb-2">{svc.title}</h4>
+              <p className="text-sm text-zinc-400 leading-relaxed">{svc.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function ProjectArticle({ project }: { project: Project }) {
+  return (
+    <article className="glass-card neon-glow rounded-2xl border border-white/5 p-6 md:p-10 mb-12 last:mb-0">
+      <header className="space-y-6">
+        <div
+          className={`flex flex-col gap-6 ${project.liveFxRates ? "lg:flex-row lg:items-start lg:gap-8 lg:justify-between" : ""}`}
+        >
+          <div className="min-w-0 flex-1 space-y-4">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div className="flex flex-wrap items-center gap-3 min-w-0">
+                <h2 className="text-h2 text-white">{project.name}</h2>
+                {project.language && (
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-surface-container-low px-3 py-1 text-label text-zinc-400 normal-case tracking-normal">
+                    <Code className="w-3.5 h-3.5 text-brand-cyan" />
+                    {project.language}
+                  </span>
+                )}
+              </div>
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-zinc-400 transition-colors hover:border-brand-cyan/40 hover:bg-brand-cyan/10 hover:text-brand-cyan"
+                aria-label="View repository on GitHub"
+              >
+                <Github className="w-5 h-5" strokeWidth={2} />
+              </a>
+            </div>
+            <p className="text-zinc-400 leading-relaxed max-w-3xl">{project.summary}</p>
+          </div>
+          {project.liveFxRates && (
+            <div className="shrink-0 w-full max-w-md lg:w-auto lg:max-w-[min(100%,20rem)]">
+              <FxLiveRatesPanel embedded />
+            </div>
+          )}
+        </div>
+      </header>
+      {project.detail && <DetailSections detail={project.detail} />}
+    </article>
+  );
+}
 
 export function ProjectsPage() {
-  const [repos, setRepos] = useState<GithubRepo[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    const url = `https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&direction=desc&per_page=100&type=owner`;
-
-    (async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const res = await fetch(url, {
-          headers: { Accept: "application/vnd.github+json" },
-        });
-        if (!res.ok) {
-          const msg =
-            res.status === 404
-              ? "Usuário não encontrado no GitHub."
-              : `GitHub retornou ${res.status}.`;
-          throw new Error(msg);
-        }
-        const data = (await res.json()) as GithubRepo[];
-        if (!cancelled) setRepos(Array.isArray(data) ? data : []);
-      } catch (e) {
-        if (!cancelled)
-          setError(e instanceof Error ? e.message : "Falha ao carregar repositórios.");
-      } finally {
-        if (!cancelled) setLoading(false);
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  const visible = repos.filter((r) => !r.fork);
-
   return (
     <section className="pt-28 pb-20">
       <div className="mb-12">
         <span className="text-label text-brand-cyan mb-3 block tracking-[0.2em]">
-          Portfolio
+          Selected work
         </span>
-        <h1 className="text-h1 text-white mb-4">Projetos</h1>
+        <h1 className="text-h1 text-white mb-4">Projects</h1>
         <p className="text-zinc-400 max-w-2xl leading-relaxed">
-          Repositórios públicos de{" "}
-          <a
-            href={`https://github.com/${GITHUB_USER}`}
-            target="_blank"
-            rel="noreferrer"
-            className="text-brand-cyan hover:underline"
-          >
-            @{GITHUB_USER}
-          </a>{" "}
-          via API pública do GitHub (sem login; há limite de requisições por IP).
+          Work I have taken from design through to production—architecture, backend
+          services, and enough context to understand how each piece fits together.
         </p>
       </div>
 
-      {loading && (
-        <p className="text-zinc-500 text-label tracking-widest">Carregando…</p>
-      )}
-      {error && (
-        <p className="text-red-400/90 text-sm" role="alert">
-          {error}
-        </p>
-      )}
-      {!loading && !error && visible.length === 0 && (
-        <p className="text-zinc-500">Nenhum repositório público listado.</p>
+      {PROJECTS.length === 0 && (
+        <p className="text-zinc-500">No projects added yet.</p>
       )}
 
-      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {visible.map((repo) => (
-          <li key={repo.id}>
-            <a
-              href={repo.html_url}
-              target="_blank"
-              rel="noreferrer"
-              className="glass-card neon-glow block rounded-xl p-5 h-full border border-white/5 hover:border-brand-cyan/30 transition-colors group"
-            >
-              <div className="flex items-start justify-between gap-2 mb-2">
-                <span className="font-semibold text-white group-hover:text-brand-cyan transition-colors truncate">
-                  {repo.name}
-                </span>
-                <ExternalLink className="w-4 h-4 text-zinc-500 shrink-0 mt-0.5" />
-              </div>
-              {repo.description && (
-                <p className="text-sm text-zinc-400 line-clamp-2 mb-4">
-                  {repo.description}
-                </p>
-              )}
-              <div className="flex flex-wrap items-center gap-3 text-label text-zinc-500">
-                {repo.language && (
-                  <span className="flex items-center gap-1 normal-case tracking-normal">
-                    <Code className="w-3.5 h-3.5" />
-                    {repo.language}
-                  </span>
-                )}
-                <span className="flex items-center gap-1 normal-case tracking-normal">
-                  <Star className="w-3.5 h-3.5" />
-                  {repo.stargazers_count}
-                </span>
-              </div>
-            </a>
-          </li>
+      <div>
+        {PROJECTS.map((project) => (
+          <Fragment key={project.id}>
+            <ProjectArticle project={project} />
+          </Fragment>
         ))}
-      </ul>
+      </div>
     </section>
   );
 }
