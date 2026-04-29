@@ -15,6 +15,44 @@ type FxRatesResponse = {
   content: FxRateRow[];
 };
 
+function getFxRatesApiUrl() {
+  return import.meta.env.VITE_FX_RATES_API_URL?.trim() ?? "";
+}
+
+let cachedRows: FxRateRow[] = [];
+let cachedError: string | null = null;
+let inflightRequest: Promise<void> | null = null;
+
+async function requestFxRates(apiUrl: string) {
+  const res = await fetch(apiUrl, { headers: { Accept: "application/json" } });
+  if (!res.ok) return { rows: [] as FxRateRow[], error: `Request failed (${res.status})` };
+  const data = (await res.json()) as FxRatesResponse;
+  const rows = Array.isArray(data?.content) ? data.content : [];
+  return { rows, error: null as string | null };
+}
+
+export async function prefetchFxLiveRates() {
+  const apiUrl = getFxRatesApiUrl();
+  if (!apiUrl) return;
+  if (inflightRequest) {
+    await inflightRequest;
+    return;
+  }
+  inflightRequest = (async () => {
+    try {
+      const { rows, error } = await requestFxRates(apiUrl);
+      cachedRows = rows;
+      cachedError = error;
+    } catch {
+      cachedRows = [];
+      cachedError = "Could not load rates";
+    } finally {
+      inflightRequest = null;
+    }
+  })();
+  await inflightRequest;
+}
+
 function approxEqual(a: number, b: number) {
   const scale = Math.max(1, Math.abs(a), Math.abs(b));
   return Math.abs(a - b) <= 1e-9 * scale;
@@ -121,27 +159,15 @@ const FxRatesTable = memo(function FxRatesTable({
 });
 
 function FxLiveRatesPanelInner({ embedded }: { embedded?: boolean }) {
-  const apiUrl = import.meta.env.VITE_FX_RATES_API_URL?.trim() ?? "";
-  const [rows, setRows] = useState<FxRateRow[]>([]);
-  const [error, setError] = useState<string | null>(null);
+  const apiUrl = getFxRatesApiUrl();
+  const [rows, setRows] = useState<FxRateRow[]>(() => cachedRows);
+  const [error, setError] = useState<string | null>(() => cachedError);
 
   const fetchRates = useCallback(async () => {
     if (!apiUrl) return;
-    try {
-      const res = await fetch(apiUrl, { headers: { Accept: "application/json" } });
-      if (!res.ok) {
-        setError(`Request failed (${res.status})`);
-        setRows([]);
-        return;
-      }
-      const data = (await res.json()) as FxRatesResponse;
-      const list = Array.isArray(data?.content) ? data.content : [];
-      setRows((prev) => (sameRateRows(prev, list) ? prev : list));
-      setError((e) => (e !== null ? null : e));
-    } catch {
-      setError("Could not load rates");
-      setRows([]);
-    }
+    await prefetchFxLiveRates();
+    setRows((prev) => (sameRateRows(prev, cachedRows) ? prev : cachedRows));
+    setError(cachedError);
   }, [apiUrl]);
 
   useEffect(() => {

@@ -9,6 +9,7 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { HomePage } from "./pages/HomePage";
 import { ProjectsPage } from "./pages/ProjectsPage";
+import { ProjectDetailPage } from "./pages/ProjectDetailPage";
 
 function Shell({ children }: { children: ReactNode }) {
   return (
@@ -38,6 +39,14 @@ export default function App() {
         element={
           <Shell>
             <ProjectsPage />
+          </Shell>
+        }
+      />
+      <Route
+        path="/projects/:projectId"
+        element={
+          <Shell>
+            <ProjectDetailPage />
           </Shell>
         }
       />
