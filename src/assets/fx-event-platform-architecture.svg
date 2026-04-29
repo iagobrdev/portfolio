@@ -1,0 +1,54 @@
+<svg viewBox="0 0 980 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#00dce5" />
+    </marker>
+  </defs>
+  <style>
+    text {
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+  </style>
+
+  <rect x="22" y="28" width="184" height="76" rx="14" fill="#161f1f" stroke="#2c3d3d" />
+  <text x="114" y="56" text-anchor="middle" fill="#e5eded" font-size="14" font-weight="700">AwesomeAPI</text>
+  <text x="114" y="80" text-anchor="middle" fill="#93a2a2" font-size="12">Public FX Provider</text>
+
+  <rect x="262" y="28" width="220" height="76" rx="14" fill="#101818" stroke="#315050" />
+  <text x="372" y="56" text-anchor="middle" fill="#e5eded" font-size="14" font-weight="700">exchange-rate-service</text>
+  <text x="372" y="80" text-anchor="middle" fill="#93a2a2" font-size="12">Polls + Produces Events</text>
+
+  <rect x="548" y="28" width="130" height="76" rx="14" fill="#101818" stroke="#315050" />
+  <text x="613" y="56" text-anchor="middle" fill="#e5eded" font-size="14" font-weight="700">Kafka</text>
+  <text x="613" y="80" text-anchor="middle" fill="#93a2a2" font-size="12">Event Stream</text>
+
+  <rect x="738" y="28" width="220" height="76" rx="14" fill="#101818" stroke="#315050" />
+  <text x="848" y="56" text-anchor="middle" fill="#e5eded" font-size="14" font-weight="700">fx-processing-service</text>
+  <text x="848" y="80" text-anchor="middle" fill="#93a2a2" font-size="12">Consumes + Normalizes</text>
+
+  <rect x="738" y="162" width="220" height="76" rx="14" fill="#101818" stroke="#315050" />
+  <text x="848" y="190" text-anchor="middle" fill="#e5eded" font-size="14" font-weight="700">MongoDB</text>
+  <text x="848" y="214" text-anchor="middle" fill="#93a2a2" font-size="12">Latest Snapshot Store</text>
+
+  <rect x="468" y="162" width="200" height="76" rx="14" fill="#101818" stroke="#315050" />
+  <text x="568" y="190" text-anchor="middle" fill="#e5eded" font-size="14" font-weight="700">api-gateway</text>
+  <text x="568" y="214" text-anchor="middle" fill="#93a2a2" font-size="12">Rates + Conversion API</text>
+
+  <rect x="182" y="162" width="220" height="76" rx="14" fill="#161f1f" stroke="#2c3d3d" />
+  <text x="292" y="190" text-anchor="middle" fill="#e5eded" font-size="14" font-weight="700">HTTP Clients</text>
+  <text x="292" y="214" text-anchor="middle" fill="#93a2a2" font-size="12">Apps, Frontends, Tools</text>
+
+  <line x1="206" y1="66" x2="262" y2="66" stroke="#00dce5" stroke-width="2.2" marker-end="url(#arrow)" />
+  <line x1="482" y1="66" x2="548" y2="66" stroke="#00dce5" stroke-width="2.2" marker-end="url(#arrow)" />
+  <line x1="678" y1="66" x2="738" y2="66" stroke="#00dce5" stroke-width="2.2" marker-end="url(#arrow)" />
+  <line x1="848" y1="104" x2="848" y2="162" stroke="#00dce5" stroke-width="2.2" marker-end="url(#arrow)" />
+  <line x1="738" y1="200" x2="668" y2="200" stroke="#00dce5" stroke-width="2.2" marker-end="url(#arrow)" />
+  <line x1="402" y1="200" x2="468" y2="200" stroke="#00dce5" stroke-width="2.2" marker-end="url(#arrow)" />
+
+  <text x="234" y="54" fill="#7d8b8b" font-size="11">poll</text>
+  <text x="507" y="54" fill="#7d8b8b" font-size="11">publish</text>
+  <text x="700" y="54" fill="#7d8b8b" font-size="11">consume</text>
+  <text x="858" y="136" fill="#7d8b8b" font-size="11">upsert</text>
+  <text x="698" y="188" fill="#7d8b8b" font-size="11">read</text>
+  <text x="425" y="188" fill="#7d8b8b" font-size="11">query</text>
+</svg>
