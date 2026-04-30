@@ -26,7 +26,7 @@ export function TechStack() {
           <ul className="space-y-3 text-sm text-zinc-400">
             <li className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-brand-cyan rounded-full"></span>
-              Java / Spring Boot
+              Java / Spring Boot / .NET / Node.js
             </li>
             <li className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-brand-cyan rounded-full"></span>

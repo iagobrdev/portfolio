@@ -14,8 +14,14 @@ export function Hero() {
         <h1 className="text-display text-white mb-6 leading-tight">
           Software <span className="text-brand-cyan">Engineer</span>
         </h1>
-        <p className="text-lg text-zinc-400 max-w-xl leading-relaxed">
-          Specializing in Java and distributed systems architecture. I design scalable backend solutions, lead architectural decisions, and drive modernization initiatives across complex environments, with strong focus on microservices, event-driven architectures, and cloud-based systems, guided by industry best engineering practices.
+        <p className="text-lg text-zinc-400 max-w-xl leading-relaxed text-justify">
+          Software Engineer and Architecture Leader with 16+ years of experience designing and scaling high-performance distributed systems.
+        </p>
+        <p className="text-lg text-zinc-400 max-w-xl leading-relaxed mt-2 text-justify">
+          Led large-scale architectural transformations, including redesigning a batch processing system handling 10M+ records into an event-driven distributed architecture with Spark, reducing processing time from 12 hours to under 20 minutes. As Head of Architecture, led the development of the national data platform for the Catholic Church in Brazil, rebuilding a non-scalable no-code system into a cloud-native distributed architecture in 6 months, and an international healthcare platform using microservices, CQRS, OCR, and AWS, enabling large-scale processing while cutting infrastructure resource consumption by 50%.
+        </p>
+        <p className="text-lg text-zinc-400 max-w-xl leading-relaxed mt-2 text-justify">
+          Operate at both strategic and hands-on levels, defining architecture, solving scalability bottlenecks, and delivering resilient, high-impact systems aligned with business growth.
         </p>
         <div className="mt-12 flex gap-12">
           <div className="flex flex-col">
