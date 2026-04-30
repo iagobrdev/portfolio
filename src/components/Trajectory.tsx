@@ -27,7 +27,7 @@ function ExperienceItem({ year, role, company, description, tags }: ExperienceIt
       <div className="md:col-span-6">
         <h4 className="text-xl font-semibold text-white mb-1 group-hover:text-brand-cyan transition-colors">{role}</h4>
         <div className="text-label text-brand-cyan mb-4">{company}</div>
-        <ul className="space-y-3 text-base text-zinc-400 max-w-2xl group-hover:text-zinc-300 transition-colors">
+        <ul className="space-y-3 text-base text-zinc-400 max-w-2xl group-hover:text-zinc-300 transition-colors text-justify">
           {visibleDescription.map((item) => (
             <li key={item} className="leading-relaxed">• {item}</li>
           ))}
@@ -56,77 +56,69 @@ function ExperienceItem({ year, role, company, description, tags }: ExperienceIt
 export function Trajectory() {
   const experiences = [
     {
-      year: "MAR 2025 — PRESENT",
+      year: "MAR/2025 — PRESENT",
       role: "Head of Architecture",
-      company: "Develcode · Full-time",
+      company: "Develcode · Full-time · Remote",
       description: [
-        "Led the architectural evolution of critical systems, working across 10+ applications, ensuring scalability and supporting thousands of users.",
-        "Restructured the enterprise architecture, removing bottlenecks and standardizing technical decisions, reducing rework across teams and accelerating delivery.",
-        "Acted as a technical gatekeeper, reviewing and guiding dozens of architectural decisions, preventing inconsistent solutions and reducing production risks.",
-        "Established engineering standards (DDD, SOLID, Clean Code, and architectural best practices), improving code quality and reducing system coupling.",
-        "Made strategic decisions on technology and architecture, balancing cost, performance, and scalability in production environments.",
-        "Conducted technical reviews on critical systems, actively preventing failures and improving reliability.",
-        "Mentored architects and tech leads, raising the technical bar and improving architectural decision-making across teams.",
-        "Partnered with executive leadership, aligning technology decisions with direct business impact."
+        "Led the redesign of a national-scale platform, replacing a non-scalable system with a distributed architecture in 6 months, now supporting thousands of concurrent users.",
+        "Defined system architecture and data strategy using PostgreSQL, MongoDB, and Redis, applying DDD to manage complex domain logic.",
+        "Designed a distributed architecture with decoupled services for query, processing, and file ingestion, enabling scalability and integration with external systems.",
+        "Architected an international healthcare platform using microservices, CQRS, AWS SQS/S3, and OCR, enabling scalable processing of structured and unstructured data.",
+        "Implemented event-driven workflows and real-time notifications (WebSockets), improving responsiveness and user experience.",
+        "Enabled large-scale processing, cutting infrastructure resource consumption by 50% and running production workloads with only 4GB of memory."
       ],
       tags: ["JAVA", "SPRING BOOT", ".NET", "REACT", "DDD", "CQRS", "MICROSERVICES", "EVENT-DRIVEN", "SOLID", "AZURE"]
     },
     {
-      year: "MAR 2024 — MAR 2025",
+      year: "MAR/2024 — MAR/2025",
       role: "Senior Software Enginner",
-      company: "Develcode · Full-time",
+      company: "Develcode · Full-time · Remote",
       description: [
-        "Developed backend solutions using Java (8-21) and Spring Boot, building robust and scalable applications integrated with React frontends.",
-        "Designed and implemented event-driven microservices architectures, leveraging CQRS and hexagonal architecture to improve domain organization and system scalability.",
-        "Built complex integrations using Apache Camel with RabbitMQ and Kafka, enabling efficient and resilient asynchronous communication across distributed systems.",
-        "Developed and maintained RESTful APIs in Java, ensuring high performance and seamless integration with internal and external systems.",
-        "Worked with Oracle and MongoDB, designing efficient data models for both relational and NoSQL scenarios.",
-        "Implemented unit and integration testing, achieving over 90% code coverage with SonarQube, significantly improving code quality and reliability.",
-        "Standardized code practices by applying SOLID principles and Clean Code, improving maintainability and reducing technical debt."
+        "Led the re-architecture of a high-volume batch system, transforming a monolith into an event-driven distributed architecture.",
+        "Implemented a Spark-based parallel processing pipeline, enabling high-throughput data processing at scale.",
+        "Reduced processing time from ~12 hours to <20 minutes for datasets exceeding 10M+ records.",
+        "Designed scalable event-driven flows, improving throughput, resilience, and fault tolerance.",
+        "Delivered high-performance backend solutions using Java (8–21) and Spring Boot."
       ],
       tags: ["JAVA", "SPRING BOOT", "REACT", "ORACLE", "MONGODB", "KAFKA", "RABBITMQ", "CQRS", "AWS"]
     },
     {
-      year: "JUL 2018 — MAR 2024",
+      year: "JUL/2018 — MAR/2024",
       role: "Senior Software Engineer",
-      company: "SiNaHab · Full-time",
+      company: "SiNaHab · Full-time · Remote",
       description: [
-        "Took ownership of a legacy system and led a full architectural redesign, transforming a monolithic application into a microservices architecture using Spring Boot, applying DDD, SOLID principles, and Clean Code, significantly improving scalability, maintainability, and code organization.",
-        "Introduced RabbitMQ-based messaging, enabling service decoupling and increasing system resilience and fault tolerance.",
-        "Designed and implemented CI/CD pipelines in Azure DevOps, automating build, testing, and deployment processes, reducing production delivery time by approximately 40% and improving release reliability.",
-        "Developed 20+ RESTful APIs in Java, enabling seamless integration between internal systems and external partners, reducing response times by approximately 25%.",
-        "Continuously evolved the system to support thousands of active users and high transaction volumes.",
-        "Implemented and maintained unit and integration testing, improving software quality and reducing production issues by approximately 30%.",
-        "Managed and maintained cloud environments on Microsoft Azure, ensuring high availability, system stability, and performance."
+        "Led the complete re-engineering of a legacy monolithic system (Laravel) into a modern architecture using Java + Spring Boot and Angular.",
+        "Migrated infrastructure from on-premise to AWS, improving scalability and operational efficiency.",
+        "Introduced Redis caching, eliminating performance bottlenecks and reducing system load.",
+        "Delivered the new system in 5 months, supporting 10x more active users with no recurring performance issues.",
+        "Applied DDD, SOLID, and Clean Code, ensuring long-term maintainability and system stability."
       ],
       tags: ["JAVA", "SPRING BOOT", "MICROSERVICES", "RABBITMQ", "AZURE", "AZURE DEVOPS", "REST"]
     },
     {
-      year: "JAN 2015 — DEC 2017",
+      year: "JAN/2015 — DEC/2017",
       role: "Lead Software Engineer",
-      company: "IBR TECNOLOGIA · Full-time",
+      company: "IBR TECNOLOGIA · Full-time · Frederico Westphalen, Rio Grande do Sul, Brazil · On-site",
       description: [
-        "Led a team of 5-8 engineers, serving as a technical reference in Java and system architecture, increasing team productivity by approximately 35% through best practices and standardization.",
-        "Drove the transition to a microservices and REST API architecture, reducing feature delivery time by around 30% and improving system scalability.",
-        "Established engineering standards (Clean Code, SOLID, DDD) and implemented structured code review processes, reducing production bugs by approximately 40%.",
-        "Played a key role in technical decision-making and solution design, ensuring highly resilient, scalable, and high-performance systems.",
-        "Designed and implemented CI/CD pipelines, reducing deployment time to production by approximately 50%.",
-        "Mentored junior and mid-level engineers, accelerating team growth and reducing onboarding time by approximately 30%.",
-        "Partnered closely with business stakeholders, translating complex requirements into efficient technical solutions, directly impacting delivery speed and product quality."
+        "Led migration from a Java desktop system to a cloud-based SaaS platform (.NET + Angular), completing full transition in 1 year.",
+        "Scaled the platform to support a growing customer base, moving all clients to the cloud model.",
+        "Solved critical performance issues in fiscal processing using the Strangler Fig Pattern.",
+        "Designed an event-driven service with RabbitMQ, improving document processing performance by 70%+.",
+        "Delivered a production-ready MVP in 6 days, approved by DETRAN-RS, enabling immediate commercialization.",
+        "Built the core system of the market leader in Brazil's vehicle dismantling segment, still in use after 12+ years."
       ],
       tags: ["JAVA", "SPRING BOOT", "MICROSERVICES", "REST", "CI/CD", "DDD", "SOLID"]
     },
     {
-      year: "JAN 2010 — DEC 2014",
+      year: "JAN/2010 — DEC/2014",
       role: "Software Engineer",
-      company: "IBR TECNOLOGIA · Full-time",
+      company: "IBR TECNOLOGIA · Full-time · Frederico Westphalen, Rio Grande do Sul, Brazil · On-site",
       description: [
-        "Led the development and continuous evolution of the iBRSOFT ERP using Java, supporting 300+ active clients and handling thousands of daily fiscal transactions, focusing on performance and high availability.",
-        "Designed and maintained critical fiscal modules (NF-e, NFS-e, CT-e, MDF-e, SPED, SINTEGRA), ensuring 100% legal compliance and reducing fiscal errors by approximately 40%.",
-        "Architected and delivered the iBRSOFT CDV system in 6 days, meeting Federal Law 12.977 requirements, enabling the first authorized vehicle dismantling operation in Brazil and driving the company to become a national market leader.",
-        "Owned the integration and certification of TEF and PAF-ECF, implementing robust Java-based solutions processing hundreds of financial transactions daily with high reliability.",
-        "Developed 20+ REST APIs and Web Services in Java, enabling seamless system integration and reducing inter-service communication time by approximately 30%.",
-        "Built mobile applications integrated with Java backend services, reaching 1,000+ active users and optimizing field operations for orders and service management."
+        "Led the development and evolution of the iBRSOFT ERP (Java), supporting 300+ clients and thousands of daily fiscal transactions with high performance and availability.",
+        "Designed and maintained critical fiscal modules (NF-e, NFS-e, CT-e, MDF-e, SPED, SINTEGRA), ensuring full legal compliance and reducing errors by ~40%.",
+        "Architected and delivered the iBRSOFT CDV system in 6 days, enabling the first authorized vehicle dismantling operation in Brazil and positioning the company as a market leader.",
+        "Implemented TEF and PAF-ECF integrations and developed 20+ REST APIs, improving system interoperability and reducing communication latency by ~30%.",
+        "Built mobile applications integrated with backend services, supporting 1,000+ users and optimizing field operations."
       ],
       tags: ["JAVA", "ERP", "FISCAL", "REST", "WEB SERVICES", "MOBILE"]
     }
